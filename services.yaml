@@ -1,0 +1,134 @@
+add_mqtt_device:
+  name: Add tinycontrol device via MQTT (discovery)
+  description: Publish MQTT Discovery configs for a tinycontrol device and its entities.
+  fields:
+    device_name:
+      required: true
+      selector: { text: {} }
+    device_model:
+      required: true
+      selector:
+        select:
+          options:
+            - LK HW 4.0
+          custom_value: false
+          multiple: false
+    serial_number:
+      required: true
+      selector: { text: {} }
+    hw_version:
+      required: true
+      selector: { text: {} }
+    sw_version:
+      required: true
+      selector: { text: {} }
+    topic_prefix:
+      required: true
+      description: "MQTT prefix set in the device's MQTT client tab."
+      selector: { text: {} }
+    series:
+      required: true
+      description: "List of series/entity names to create (e.g. var1, var2)."
+      selector:
+        select:
+          options:
+            - boardVoltage
+            - boardTemp
+            - boardHum
+            - iA1
+            - iA2
+            - iA3
+            - DS1
+            - DS2
+            - DS3
+            - DS4
+            - DS5
+            - DS6
+            - DS7
+            - DS8
+            - i2cTemp (T1)
+            - i2cHum (H1)
+            - i2cPressure (P1)
+            - DIFF1
+            - DIFF2
+            - DIFF3
+            - DIFF4
+            - DIFF5
+            - DIFF6
+            - INPD1
+            - INPD2
+            - INPD3
+            - INPD4
+            - OUT1
+            - OUT2
+            - OUT3
+            - OUT4
+            - OUT5
+            - OUT6
+            - PWM1
+            - PWM2
+            - PWM3
+            - PWM1 Duty
+            - PWM2 Duty
+            - PWM3 Duty
+            - POWER1
+            - POWER2
+            - POWER3
+            - POWER4
+            - POWER5
+            - POWER6
+            - ENERGY1
+            - ENERGY2
+            - ENERGY3
+            - ENERGY4
+            - ENERGY5
+            - ENERGY6
+            - VAR1
+            - VAR2
+            - VAR3
+            - VAR4
+            - VAR5
+            - VAR6
+            - VAR7
+            - VAR8
+            - PM1.0
+            - PM2.5
+            - PM4.0
+            - PM10.0
+            - CO2
+            - Custom reading m1
+            - Custom reading m2
+            - Custom reading m3
+            - Custom reading m4
+            - Custom reading m5
+            - Custom reading m6
+            - Custom reading m7
+            - Custom reading m8
+            - Custom reading m9
+            - Custom reading m10
+            - Custom reading m11
+            - Custom reading m12
+            - Custom reading m13
+            - Custom reading m14
+            - Custom reading m15
+            - Custom reading m16
+            - Custom reading m17
+            - Custom reading m18
+            - Custom reading m19
+            - Custom reading m20
+            - Custom reading m21
+            - Custom reading m22
+            - Custom reading m23
+            - Custom reading m24
+            - Custom reading m25
+            - Custom reading m26
+            - Custom reading m27
+            - Custom reading m28
+            - Custom reading m29
+            - Custom reading m30
+          multiple: true
+          custom_value: false
+    discovery_prefix:
+      required: false
+      description: 'Defaults to the MQTT integration setting.'
+      selector: { text: {} }
