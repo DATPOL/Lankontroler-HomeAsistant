@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Skonfiguruj urządzenie tinycontrol",
+        "description": "Skonfiguruj swoje urządzenie tinycontrol, aby zintegrować je z Home Assistant.\nAby dodać urządzenie z włączonym protokołem HTTPS (domyślny port 443), należy tutaj wprowadzić port używany przez urządzenie dla protokołu HTTP (domyślnie 80).",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Nazwa użytkownika",
+          "password": "Hasło",
+          "scan_interval": "Interwał aktualizacji danych [s]"
+        }
+      },
+      "reconfigure": {
+        "title": "Ponownie skonfiguruj urządzenie tinycontrol",
+        "description": "Skonfiguruj ponownie urządzenie tinycontrol po włączeniu/wyłączeniu Basic Authentication lub zmianie ustawień sieciowych/dostępu.\nNależy pamiętać, że aby obsłużyć urządzenie z włączonym protokołem HTTPS (domyślny port 443), należy tutaj wprowadzić port używany przez urządzenie dla protokołu HTTP (domyślnie 80).",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Nazwa użytkownika",
+          "password": "Hasło",
+          "scan_interval": "Interwał aktualizacji danych [s]"
+        }
+      },
+      "reauth": {
+        "title": "Zaktualizuj dane uwierzytelniające swojego urządzenia tinycontrol",
+        "description": "Dane uwierzytelniające urządzenia nie są już ważne i należy je zaktualizować. Może się tak zdarzyć, gdy urządzenie korzysta z Basic Authentication i jego dane uwierzytelniające zostaną zmienione.",
+        "data": {
+          "username": "Nazwa użytkownika",
+          "password": "Hasło"
+        }
+      }
+    },
+    "error": {
+      "wrong_credentials": "Zła nazwa użytkownika lub hasło",
+      "cannot_connect": "Nie udało się połączyć"
+    },
+    "abort": {
+      "already_configured": "Urządzenie jest już skonfigurowane",
+      "cannot_connect": "Nie udało się połączyć",
+      "reauth_successful": "Pomyślnie zaktualizowano dane uwierzytelniające dla Twojego urządzenia.",
+      "reconfigure_successful": "Pomyślnie zaktualizowano konfigurację Twojego urządzenia.",
+      "unique_id_mismatch": "ID urządzenia nie pasuje do ID w konfiguracji. Prawdopodobnie jest to inne urządzenie lub jego MAC został zmieniony."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Skonfiguruj opcje dla tinycontrol",
+        "data": {
+          "update_interval": "Interwał aktualizacji danych [s]"
+        }
+      }
+    }
+  },
+  "services": {
+    "add_mqtt_device": {
+      "name": "Dodaj urządzenie tinycontrol przez MQTT (discovery)",
+      "description": "Opublikuj konfiguracje MQTT Discovery dla urządzenia tinycontrol i jego encji.",
+      "fields": {
+        "device_name": { "name": "Nazwa urządzenia" },
+        "device_model": { "name": "Model urządzenia" },
+        "serial_number": { "name": "Adres MAC urządzenia" },
+        "hw_version": { "name": "Wersja sprzętu" },
+        "sw_version": { "name": "Wersja oprogramowania" },
+        "topic_prefix": { "name": "Prefiks tematu MQTT", "description": "Prefiks MQTT ustawiony na karcie klienta MQTT urządzenia." },
+        "series": { "name": "Serie/encje", "description": "Lista nazw serii/encji do utworzenia (np. var1, var2)." },
+        "discovery_prefix": { "name": "Prefiks MQTT Discovery", "description": "Domyślnie używane jest ustawienie integracji MQTT." }
+      }
+    }
+  }
+}

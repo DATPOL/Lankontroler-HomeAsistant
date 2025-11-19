@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up tinycontrol device",
+        "description": "Set up your tinycontrol device to integrate with Home Assistant.\nTo add a device with HTTPS enabled (default port 443), enter the port it uses for HTTP here (default 80).",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "scan_interval": "Data update interval [s]"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure your tinycontrol device",
+        "description": "Reconfigure your tinycontrol device after enabling/disabling Basic Authentication or changing network/access settings.\nNote that to handle a device with HTTPS enabled (default port 443) enter the port it uses for HTTP here (default 80).",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "scan_interval": "Data update interval [s]"
+        }
+      },
+      "reauth": {
+        "title": "Update your tinycontrol device credentials",
+        "description": "Credentials for the device are no longer valid and need to be updated.\nIt can occur when the device uses Basic Authentication and its credentials change.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "wrong_credentials": "Wrong username or password",
+      "cannot_connect": "Failed to connect"
+    },
+    "abort": {
+      "already_configured": "This device is already configured",
+      "cannot_connect": "Failed to connect",
+      "reauth_successful": "Successfully updated credentials for your device.",
+      "reconfigure_successful": "Your device configuration has been successfully updated.",
+      "unique_id_mismatch": "The device ID does not match the ID in the configuration. It is probably a different device or its MAC has been changed."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure options for tinycontrol",
+        "data": {
+          "update_interval": "Data update interval [s]"
+        }
+      }
+    }
+  },
+  "services": {
+    "add_mqtt_device": {
+      "name": "Add tinycontrol device via MQTT (discovery)",
+      "description": "Publish MQTT Discovery configs for a tinycontrol device and its entities.",
+      "fields": {
+        "device_name": { "name": "Device name" },
+        "device_model": { "name": "Device model" },
+        "serial_number": { "name": "Device MAC address" },
+        "hw_version": { "name": "Hardware version" },
+        "sw_version": { "name": "Software version" },
+        "topic_prefix": { "name": "MQTT topic prefix", "description": "MQTT prefix set in the device's MQTT client tab." },
+        "series": { "name": "Series/entities", "description": "List of series/entity names to create (e.g. var1, var2)." },
+        "discovery_prefix": { "name": "MQTT Discovery prefix", "description": "Defaults to the MQTT integration setting." }
+      }
+    }
+  }
+}
